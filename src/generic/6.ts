@@ -1,23 +1,21 @@
 /*
-  Ви маєте форму реєстрації користувачів. 
-  Іноді потрібно попередньо заповнити форму даними користувача для оновлення його профілю. 
-  Однак вам не завжди потрібно заповнити всі поля. Наприклад, користувач може хотіти оновити лише свій email та пароль, 
-  залишивши ім'я та прізвище без змін.
-
-  Виправте тип у аргументі функції так, щоб не було помилок типу.
+  У вас є перелік UserRole, який використовується для класифікації користувачів у вашому додатку.
+  Ви хочете створити об'єкт RoleDescription, який зіставлятиме кожну роль користувача з її описом.
 */
 
-type User = {
-  name: string;
-  surname: string;
-  email: string;
-  password: string;
+export enum UserRole {
+  admin = "admin",
+  editor = "editor",
+  guest = "guest",
 }
 
-function createOrUpdateUser(initialValues: User) {
-  // Оновлення користувача
-}
+// Замініть наступний код на версію за допомогою Record
+// type RoleDescription = Record<UserRole, string>;
 
-createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+const RoleDescription: Record<UserRole, string> = {
+  [UserRole.admin]: "Admin User",
+  [UserRole.editor]: "Editor User",
+  [UserRole.guest]: "Guest User",
+};
 
 export {};
